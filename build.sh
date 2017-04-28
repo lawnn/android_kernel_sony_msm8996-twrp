@@ -55,7 +55,7 @@ while [ $# != 0 ]; do
 	shift
 done
 
-[ "$TARGET" ] || TARGET=aosp_tone_kagura
+[ "$TARGET" ] || TARGET=twrp_tone_kagura
 
 DEFCONFIG=${TARGET}_defconfig
 

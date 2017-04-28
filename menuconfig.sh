@@ -5,10 +5,11 @@
 RDIR=$(pwd)
 
 # directory containing cross-compile arm64 toolchain
-TOOLCHAIN=$HOME/build/toolchain/gcc-linaro-5.3.1-2016.05-x86_64_aarch64-linux-gnu
+BUILD_CROSS_COMPILE=aarch64-linux-android-6.x
+TOOLCHAIN=$PWD/../../../prebuilts/gcc/darwin-x86/aarch64/$BUILD_CROSS_COMPILE
 
 export ARCH=arm64
-export CROSS_COMPILE=$TOOLCHAIN/bin/aarch64-linux-gnu-
+export CROSS_COMPILE=$TOOLCHAIN/bin/aarch64-linux-android-
 
 ABORT() {
 	[ "$1" ] && echo "Error: $*"
@@ -29,7 +30,7 @@ while [ $# != 0 ]; do
 	shift
 done
 
-[ "$TARGET" ] || TARGET=oneplus
+[ "$TARGET" ] || TARGET=twrp_tone_kagura
 
 DEFCONFIG=${TARGET}_defconfig
 DEFCONFIG_FILE=$RDIR/arch/$ARCH/configs/$DEFCONFIG
